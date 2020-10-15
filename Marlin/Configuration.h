@@ -134,8 +134,6 @@
 #define PS_ON_PIN        12
 #define TEMP_CHAMBER_PIN 15
 //#define FIL_RUNOUT_PIN    6
-#define Z_MIN_PROBE_PIN   5//57
-#define NEOPIXEL_PIN     4 
 //#define SPINDLE_FEATURE //to use M3 M4 M5
 
 // Name displayed in the LCD "Ready" message and Info menu
@@ -627,8 +625,8 @@
 #define USE_YMIN_PLUG
 #define USE_ZMIN_PLUG
 #define USE_XMAX_PLUG
-#define USE_YMAX_PLUG
-#define USE_ZMAX_PLUG
+//#define USE_YMAX_PLUG
+//#define USE_ZMAX_PLUG
 
 // Enable pullup for all endstops to prevent a floating state
 #define ENDSTOPPULLUPS
@@ -744,7 +742,7 @@
  * Override with M92
  *                                      X, Y, Z, E0 [, E1[, E2...]]
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 160, 160, 3200, 194 }
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 160, 160, 1600, 194 }
 
 /**
  * Default Max Feed Rate (mm/s)
@@ -864,7 +862,7 @@
  *      - normally-closed switches to GND and D32.
  *      - normally-open switches to 5V and D32.
  */
-//#define Z_MIN_PROBE_PIN 32 // Pin 32 is the RAMPS default
+#define Z_MIN_PROBE_PIN 5 // Pin 32 is the RAMPS default
 
 /**
  * Probe Type
@@ -1119,7 +1117,7 @@
 // Direction of endstops when homing; 1=MAX, -1=MIN
 // :[-1,1]
 #define X_HOME_DIR 1
-#define Y_HOME_DIR 1
+#define Y_HOME_DIR -1
 #define Z_HOME_DIR -1
 
 // @section machine
@@ -2363,7 +2361,7 @@
 #define NEOPIXEL_LED
 #if ENABLED(NEOPIXEL_LED)
   #define NEOPIXEL_TYPE   NEO_GRB // NEO_GRBW / NEO_GRB - four/three channel driver type (defined in Adafruit_NeoPixel.h)
-  //#define NEOPIXEL_PIN     4       // LED driving pin
+  #define NEOPIXEL_PIN     4       // LED driving pin
   //#define NEOPIXEL2_TYPE NEOPIXEL_TYPE
   //#define NEOPIXEL2_PIN    5
   #define NEOPIXEL_PIXELS (17+18)       // Number of LEDs in the strip
