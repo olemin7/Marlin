@@ -133,7 +133,7 @@
 #define HEATER_BED_PIN   11
 #define PS_ON_PIN        12
 #define TEMP_CHAMBER_PIN 15
-//#define FIL_RUNOUT_PIN    6
+
 //#define SPINDLE_FEATURE //to use M3 M4 M5
 
 // Name displayed in the LCD "Ready" message and Info menu
@@ -335,9 +335,9 @@
 #define PSU_NAME "Power Supply"
 
 #if ENABLED(PSU_CONTROL)
-  #define PSU_ACTIVE_STATE HIGH      // Set 'LOW' for ATX, 'HIGH' for X-Box
+  #define PSU_ACTIVE_STATE LOW      // Set 'LOW' for ATX, 'HIGH' for X-Box
 
-  //#define PSU_DEFAULT_OFF         // Keep power off until enabled directly with M80
+  #define PSU_DEFAULT_OFF         // Keep power off until enabled directly with M80
   //#define PSU_POWERUP_DELAY 250   // (ms) Delay for the PSU to warm up to full power
 
   //#define AUTO_POWER_CONTROL      // Enable automatic control of the PS_ON pin
@@ -868,7 +868,7 @@
  *      - normally-closed switches to GND and D32.
  *      - normally-open switches to 5V and D32.
  */
-#define Z_MIN_PROBE_PIN 5 // Pin 32 is the RAMPS default
+#define Z_MIN_PROBE_PIN 6 // Pin 32 is the RAMPS default
 
 /**
  * Probe Type
@@ -1134,7 +1134,7 @@
 
 // Travel limits (mm) after homing, corresponding to endstop positions.
 #define X_MIN_POS 0
-#define Y_MIN_POS -5
+#define Y_MIN_POS -20
 #define Z_MIN_POS 0
 #define X_MAX_POS (X_BED_SIZE+16+X_MIN_POS)
 #define Y_MAX_POS (Y_BED_SIZE+10+Y_MIN_POS)
@@ -1993,6 +1993,7 @@
 // https://reprap.org/wiki/RepRapDiscount_Full_Graphic_Smart_Controller
 //
 #define REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER
+#define LCD_SCREEN_ROT_180
 
 //
 // ReprapWorld Graphical LCD
@@ -2369,9 +2370,9 @@
 #if ENABLED(NEOPIXEL_LED)
   #define NEOPIXEL_TYPE   NEO_GRB // NEO_GRBW / NEO_GRB - four/three channel driver type (defined in Adafruit_NeoPixel.h)
   #define NEOPIXEL_PIN     4       // LED driving pin
-  //#define NEOPIXEL2_TYPE NEOPIXEL_TYPE
-  //#define NEOPIXEL2_PIN    5
-  #define NEOPIXEL_PIXELS (17+18)       // Number of LEDs in the strip
+  #define NEOPIXEL2_TYPE NEOPIXEL_TYPE
+  #define NEOPIXEL2_PIN    5
+  #define NEOPIXEL_PIXELS 18       // Number of LEDs in the strip
   #define NEOPIXEL_IS_SEQUENTIAL   // Sequential display for temperature change - LED by LED. Disable to change all LEDs at once.
   #define NEOPIXEL_BRIGHTNESS 127  // Initial brightness (0-255)
   //#define NEOPIXEL_STARTUP_TEST  // Cycle through colors at startup
