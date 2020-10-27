@@ -632,7 +632,7 @@
 #define USE_ZMIN_PLUG
 #define USE_XMAX_PLUG
 #define USE_YMAX_PLUG
-//#define USE_ZMAX_PLUG
+#define USE_ZMAX_PLUG
 
 // Enable pullup for all endstops to prevent a floating state
 #define ENDSTOPPULLUPS
@@ -1129,16 +1129,21 @@
 // @section machine
 
 // The size of the print bed
-#define X_BED_SIZE 200
-#define Y_BED_SIZE 200
+#define X_BED_SIZE 214
+#define Y_BED_SIZE 214
+
+#define X_AXIS_SIZE 220
+#define Y_AXIS_SIZE 246
+#define Z_AXIS_SIZE 229
 
 // Travel limits (mm) after homing, corresponding to endstop positions.
-#define X_MIN_POS 0
-#define Y_MIN_POS -20
+#define X_MIN_POS -4
+#define Y_MIN_POS -31
 #define Z_MIN_POS 0
-#define X_MAX_POS (X_BED_SIZE+16+X_MIN_POS)
-#define Y_MAX_POS (Y_BED_SIZE+10+Y_MIN_POS)
-#define Z_MAX_POS 228
+
+#define X_MAX_POS (X_AXIS_SIZE+X_MIN_POS)
+#define Y_MAX_POS (Y_AXIS_SIZE+Y_MIN_POS)
+#define Z_MAX_POS (Z_AXIS_SIZE+Z_MIN_POS)
 
 /**
  * Software Endstops
@@ -2372,7 +2377,7 @@
   #define NEOPIXEL_PIN     4       // LED driving pin
   #define NEOPIXEL2_TYPE NEOPIXEL_TYPE
   #define NEOPIXEL2_PIN    5
-  #define NEOPIXEL_PIXELS 18       // Number of LEDs in the strip
+  #define NEOPIXEL_PIXELS 18       // Number of LEDs in the strip. (Longest strip when NEOPIXEL2_SEPARATE is disabled.)
   #define NEOPIXEL_IS_SEQUENTIAL   // Sequential display for temperature change - LED by LED. Disable to change all LEDs at once.
   #define NEOPIXEL_BRIGHTNESS 127  // Initial brightness (0-255)
   //#define NEOPIXEL_STARTUP_TEST  // Cycle through colors at startup
