@@ -997,7 +997,7 @@
  *     |    [-]    |
  *     O-- FRONT --+
  */
-#define NOZZLE_TO_PROBE_OFFSET {-20, -2, 0 }
+#define NOZZLE_TO_PROBE_OFFSET {-25, 5, 0 }
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
@@ -1142,7 +1142,7 @@
 
 // Travel limits (mm) after homing, corresponding to endstop positions.
 #define X_MIN_POS -4
-#define Y_MIN_POS -31
+#define Y_MIN_POS -21
 #define Z_MIN_POS 0
 
 #define X_MAX_POS (X_AXIS_SIZE+X_MIN_POS)
@@ -2003,6 +2003,10 @@
 //
 #define REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER
 #define LCD_SCREEN_ROT_180
+
+#define ST7920_DELAY_1 DELAY_NS(50)
+#define ST7920_DELAY_2 DELAY_NS(188)
+#define ST7920_DELAY_3 DELAY_NS(50)
 
 //
 // ReprapWorld Graphical LCD
