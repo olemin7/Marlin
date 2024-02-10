@@ -22,12 +22,14 @@
 
 #include "../../../inc/MarlinConfig.h"
 
-#if HAS_SHAPING
+#if HAS_ZV_SHAPING
 
 #include "../../gcode.h"
 #include "../../../module/stepper.h"
 
 void GcodeSuite::M593_report(const bool forReplay/*=true*/) {
+  TERN_(MARLIN_SMALL_BUILD, return);
+
   report_heading_etc(forReplay, F("Input Shaping"));
   #if ENABLED(INPUT_SHAPING_X)
     SERIAL_ECHOLNPGM("  M593 X"
@@ -49,8 +51,8 @@ void GcodeSuite::M593_report(const bool forReplay/*=true*/) {
  *  D<factor>    Set the zeta/damping factor. If axes (X, Y, etc.) are not specified, set for all axes.
  *  F<frequency> Set the frequency. If axes (X, Y, etc.) are not specified, set for all axes.
  *  T[map]       Input Shaping type, 0:ZV, 1:EI, 2:2H EI (not implemented yet)
- *  X<1>         Set the given parameters only for the X axis.
- *  Y<1>         Set the given parameters only for the Y axis.
+ *  X            Set the given parameters only for the X axis.
+ *  Y            Set the given parameters only for the Y axis.
  */
 void GcodeSuite::M593() {
   if (!parser.seen_any()) return M593_report();
@@ -72,13 +74,13 @@ void GcodeSuite::M593() {
 
   if (parser.seen('F')) {
     const float freq = parser.value_float();
-    constexpr float max_freq = float(uint32_t(STEPPER_TIMER_RATE) / 2) / shaping_time_t(-2);
-    if (freq == 0.0f || freq > max_freq) {
+    constexpr float min_freq = float(uint32_t(STEPPER_TIMER_RATE) / 2) / shaping_time_t(-2);
+    if (freq == 0.0f || freq > min_freq) {
       if (for_X) stepper.set_shaping_frequency(X_AXIS, freq);
       if (for_Y) stepper.set_shaping_frequency(Y_AXIS, freq);
     }
     else
-      SERIAL_ECHOLNPGM("?Frequency (F) must be greater than ", max_freq, " or 0 to disable");
+      SERIAL_ECHOLNPGM(GCODE_ERR_MSG("Frequency (F) must be greater than ", min_freq, " or 0 to disable"));
   }
 }
 
