@@ -1240,7 +1240,7 @@
  * Override with M92 (when enabled below)
  *                                      X, Y, Z [, I [, J [, K...]]], E0 [, E1[, E2...]]
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 480, 480, 1600, 578 } // { 160, 160, 1600, 194 }
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 480, 480, 1600, 1381 }
 
 /**
  * Enable support for M92. Disable to save at least ~530 bytes of flash.
@@ -1585,7 +1585,7 @@
  *     |    [-]    |
  *     O-- FRONT --+
  */
-#define NOZZLE_TO_PROBE_OFFSET {0, 26, 0 }
+#define NOZZLE_TO_PROBE_OFFSET {0, 49, 0 }
 
 // Enable and set to use a specific tool for probing. Disable to allow any tool.
 #define PROBING_TOOL 0
