@@ -69,6 +69,7 @@
 #define PS_ON_PIN          PE8 // ps-on
 #define NEOPIXEL_PIN       PE4 // probe
 #define Z_MIN_PROBE_PIN    PE5 // servos 
+#define Z2_STOP_PIN        X_MAX_PIN
 #define CONTROLLER_FAN_PIN PB6 // Fan1
 #define SPINDLE_LASER_PWM_PIN -1
 #define SPINDLE_LASER_ENA_PIN PE6// rgb
@@ -1585,7 +1586,7 @@
  *     |    [-]    |
  *     O-- FRONT --+
  */
-#define NOZZLE_TO_PROBE_OFFSET {0, 49, 0 }
+#define NOZZLE_TO_PROBE_OFFSET {0, 49, -16 }
 
 // Enable and set to use a specific tool for probing. Disable to allow any tool.
 #define PROBING_TOOL 0
@@ -1595,7 +1596,7 @@
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
-#define PROBING_MARGIN 10
+#define PROBING_MARGIN 12
 
 // X and Y axis travel speed (mm/min) between probes
 #define XY_PROBE_FEEDRATE (133*60)
@@ -1834,7 +1835,7 @@
 
 // Travel limits (linear=mm, rotational=°) after homing, corresponding to endstop positions.
 #define X_MIN_POS -5
-#define Y_MIN_POS -25
+#define Y_MIN_POS -30
 #define Z_MIN_POS 0
 #define X_MAX_POS (X_AXIS_SIZE+X_MIN_POS)
 #define Y_MAX_POS (Y_AXIS_SIZE+Y_MIN_POS)
