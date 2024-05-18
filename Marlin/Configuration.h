@@ -80,8 +80,8 @@
 #define HEATER_BED_PIN  PB7   // Fan0
 #define FAN1_PIN        -1
 #define FAN2_PIN        -1
-#define HEATER_CHAMBER_PIN      PE6   // rgb
-  //#define HEATER_CHAMBER_INVERTING false
+#define HEATER_CHAMBER_PIN       PE6   // rgb
+#define HEATER_CHAMBER_INVERTING true
 
 // Choose the name from boards.h that matches your setup
 #ifndef MOTHERBOARD
@@ -434,7 +434,7 @@
   //#define POWER_OFF_TIMER               // Enable M81 D<seconds> to power off after a delay
   //#define POWER_OFF_WAIT_FOR_COOLDOWN   // Enable M81 S to power off only after cooldown
 
-  #define PSU_POWERUP_GCODE  "M355 S1"  // G-code to run after power-on (e.g., case light on)
+  #define PSU_POWERUP_GCODE  "M355 S1\nM501 "  // G-code to run after power-on (e.g., case light on)
   #define PSU_POWEROFF_GCODE "M355 S0"  // G-code to run before power-off (e.g., case light off)
 
   #define AUTO_POWER_CONTROL      // Enable automatic control of the PS_ON pin
@@ -1768,7 +1768,7 @@
 // Invert the stepper direction. Change (or reverse the motor connector) if an axis goes the wrong way.
 #define INVERT_X_DIR false
 #define INVERT_Y_DIR true
-#define INVERT_Z_DIR false
+#define INVERT_Z_DIR true
 //#define INVERT_I_DIR false
 //#define INVERT_J_DIR false
 //#define INVERT_K_DIR false
@@ -1779,7 +1779,7 @@
 // @section extruder
 
 // For direct drive extruder v9 set to true, for geared extruder set to false.
-#define INVERT_E0_DIR false
+#define INVERT_E0_DIR true
 #define INVERT_E1_DIR false
 #define INVERT_E2_DIR false
 #define INVERT_E3_DIR false
