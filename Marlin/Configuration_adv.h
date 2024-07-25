@@ -2565,9 +2565,7 @@
  *
  * Override the default value based on the driver type set in Configuration.h.
  */
-
-#define MINIMUM_STEPPER_PULSE_NS 100
-
+#define MINIMUM_STEPPER_PULSE_NS 200
 
 /**
  * Maximum stepping rate (in Hz) the stepper driver allows
@@ -2692,7 +2690,7 @@
 #define SERIAL_OVERRUN_PROTECTION
 
 // For serial echo, the number of digits after the decimal point
-#define SERIAL_FLOAT_PRECISION 4
+//#define SERIAL_FLOAT_PRECISION 4
 
 /**
  * This feature is EXPERIMENTAL so use with caution and test thoroughly.
@@ -3452,7 +3450,7 @@
    * Enable M122 debugging command for TMC stepper drivers.
    * M122 S0/1 will enable continuous reporting.
    */
-  #define TMC_DEBUG
+  //#define TMC_DEBUG
 
   /**
    * You can set your own advanced settings by filling in predefined functions.
