@@ -71,14 +71,11 @@
 #define Z_MIN_PROBE_PIN    PE5 // servos 
 #define Z2_STOP_PIN        X_MAX_PIN
 #define CONTROLLER_FAN_PIN PB6 // Fan1
-//#define SPINDLE_LASER_PWM_PIN -1
-//#define SPINDLE_LASER_ENA_PIN PE6// rgb
-
 
 #define HEATER_0_PIN    PD7   // Hotbed
 #define FAN0_PIN        PB4   // Heater1
 #define HEATER_BED_PIN  PB7   // Fan0
-#define FAN1_PIN        -1
+#define FAN1_PIN        PB5   // Fan2
 #define FAN2_PIN        -1
 #define HEATER_CHAMBER_PIN       PE6   // rgb
 #define HEATER_CHAMBER_INVERTING true
