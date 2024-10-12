@@ -350,8 +350,8 @@
  * Thermal Protection parameters for the heated chamber.
  */
 #if TEMP_SENSOR_CHAMBER && ENABLED(THERMAL_PROTECTION_CHAMBER)
-  #define THERMAL_PROTECTION_CHAMBER_PERIOD    20 // (seconds)
-  #define THERMAL_PROTECTION_CHAMBER_HYSTERESIS 2 // (°C)
+  #define THERMAL_PROTECTION_CHAMBER_PERIOD    40 // (seconds)
+  #define THERMAL_PROTECTION_CHAMBER_HYSTERESIS 4 // (°C)
 
   /**
    * Heated chamber watch settings (M141/M191).
