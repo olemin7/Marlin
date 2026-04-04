@@ -738,9 +738,9 @@
     #define DEFAULT_KI_LIST {   1.08,   1.08 }
     #define DEFAULT_KD_LIST { 114.00, 114.00 }
   #else
-    #define DEFAULT_KP 19.13
-    #define DEFAULT_KI 1.21
-    #define DEFAULT_KD 75.74
+    #define DEFAULT_KP 15.42
+    #define DEFAULT_KI 0.90
+    #define DEFAULT_KD 65.99
   #endif
 #else
   #define BANG_MAX 255    // Limit hotend current while in bang-bang mode; 255=full current
@@ -838,9 +838,9 @@
 
   // 120V 250W silicone heater into 4mm borosilicate (MendelMax 1.5+)
   // from FOPDT model - kp=.39 Tp=405 Tdead=66, Tc set to 79.2, aggressive factor of .15 (vs .1, 1, 10)
-  #define DEFAULT_BED_KP 48.7921
-  #define DEFAULT_BED_KI 8.8408
-  #define DEFAULT_BED_KD 179.5225
+  #define DEFAULT_BED_KP 49.89
+  #define DEFAULT_BED_KI 9.04
+  #define DEFAULT_BED_KD 183.61
 
   // FIND YOUR OWN: "M303 E-1 C8 S90" to run autotune on the bed at 90 degreesC for 8 cycles.
 #else
@@ -1885,7 +1885,7 @@
 
 // Invert the stepper direction. Change (or reverse the motor connector) if an axis goes the wrong way.
 #define INVERT_X_DIR false
-#define INVERT_Y_DIR true
+#define INVERT_Y_DIR false
 #define INVERT_Z_DIR true
 //#define INVERT_I_DIR false
 //#define INVERT_J_DIR false
